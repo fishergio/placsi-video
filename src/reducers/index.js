@@ -1,6 +1,7 @@
 import {
     SET_FAVORITE,
     DELETE_FAVORITE,
+    LOGIN_REQUEST,
 } from '../types';
 
 const reducer = (state, action) => {
@@ -20,6 +21,11 @@ const reducer = (state, action) => {
                 myList: state.myList.filter( item => item.id !== action.payload)
             }
             break;
+        case LOGIN_REQUEST:
+            return {
+                ...state,
+                user: action.payload
+            }
         default:
             return state;
     }
