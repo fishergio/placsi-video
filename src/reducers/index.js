@@ -2,6 +2,7 @@ import {
     SET_FAVORITE,
     DELETE_FAVORITE,
     LOGIN_REQUEST,
+    LOGOUT_REQUEST,
 } from '../types';
 
 const reducer = (state, action) => {
@@ -14,17 +15,20 @@ const reducer = (state, action) => {
                 ? [...state.myList]
                 : [...state.myList, action.payload ]
             }
-            break;
         case DELETE_FAVORITE:
             return {
                 ...state,
                 myList: state.myList.filter( item => item.id !== action.payload)
             }
-            break;
         case LOGIN_REQUEST:
             return {
                 ...state,
                 user: action.payload
+            }
+        case LOGOUT_REQUEST:
+            return {
+                ...state,
+                user: {}
             }
         default:
             return state;

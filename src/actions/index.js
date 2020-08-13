@@ -2,6 +2,8 @@ import {
     SET_FAVORITE,
     DELETE_FAVORITE,
     LOGIN_REQUEST,
+    LOGOUT_REQUEST,
+    REGISTER_REQUEST,
 } from '../types';
 
 export const setFavorite = (payload) => ({
@@ -18,3 +20,12 @@ export const loginRequest = payload => ({
     type: LOGIN_REQUEST,
     payload
 });
+
+export const logoutRequest = () => ({
+    type: LOGOUT_REQUEST
+})
+
+export const registerRequest = payload => ({
+    type: REGISTER_REQUEST,
+    payload
+})
