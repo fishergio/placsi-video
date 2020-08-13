@@ -3,6 +3,7 @@ import {
     DELETE_FAVORITE,
     LOGIN_REQUEST,
     LOGOUT_REQUEST,
+    REGISTER_REQUEST,
 } from '../types';
 
 const reducer = (state, action) => {
@@ -20,7 +21,8 @@ const reducer = (state, action) => {
                 ...state,
                 myList: state.myList.filter( item => item.id !== action.payload)
             }
-        case LOGIN_REQUEST:
+        case LOGIN_REQUEST,
+            REGISTER_REQUEST:
             return {
                 ...state,
                 user: action.payload

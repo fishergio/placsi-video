@@ -1,18 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { registerRequest } from '../actions/index';
 import '../assets/styles/components/Register.scss';
 
-const Register = () => {
+const Register = (props) => {
+
+  const [ form, setValues ] = useState({
+    name: '',
+    email: '',
+    password: ''
+  })
 
   const handleInput = (e) => {
-    console.log(e.target)
+    setValues({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const registerSubmit = (e) => {
+    e.preventDefault();
+    props.registerRequest(form);
+
+    props.history.push('/');
   }
 
   return (
     <section className='register'>
       <section className='register__container'>
         <h2 className='register__title'>Regístrate</h2>
-        <form className='register__container--form'>
+        <form className='register__container--form' onSubmit={registerSubmit}>
           <input
             name='name'
             type='text'
@@ -45,4 +63,9 @@ const Register = () => {
   );
 }
 
-export default Register;
+
+const mapDispatchToProps = {
+  registerRequest
+}
+
+export default connect(null, mapDispatchToProps)(Register);
