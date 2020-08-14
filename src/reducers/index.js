@@ -4,6 +4,7 @@ import {
     LOGIN_REQUEST,
     LOGOUT_REQUEST,
     REGISTER_REQUEST,
+    GET_VIDEO_SOURCE,
 } from '../types';
 
 const reducer = (state, action) => {
@@ -31,6 +32,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 user: {}
+            }
+        case GET_VIDEO_SOURCE:
+            return {
+                ...state,
+                playing: state.trends.concat(state.originals).find( item => item.id === Number(action.payload)) || []
             }
         default:
             return state;

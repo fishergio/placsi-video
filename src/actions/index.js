@@ -4,6 +4,7 @@ import {
     LOGIN_REQUEST,
     LOGOUT_REQUEST,
     REGISTER_REQUEST,
+    GET_VIDEO_SOURCE,
 } from '../types';
 
 export const setFavorite = (payload) => ({
@@ -27,5 +28,10 @@ export const logoutRequest = () => ({
 
 export const registerRequest = payload => ({
     type: REGISTER_REQUEST,
+    payload
+})
+
+export const getVideoSource = payload => ({
+    type: GET_VIDEO_SOURCE,
     payload
 })

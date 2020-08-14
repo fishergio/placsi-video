@@ -4,6 +4,7 @@ import Home from '../containers/Home';
 import Login from '../containers/Login';
 import Register from '../containers/Register';
 import Layout from '../containers/Layout';
+import Player from '../containers/Player';
 
 const App = () => (
     <Router>
@@ -12,6 +13,7 @@ const App = () => (
                 <Route exact path='/' component={Home}></Route>
                 <Route exact path='/login' component={Login}></Route>
                 <Route exact path='/register' component={Register}></Route>
+                <Route excat path="/player/:id" component={Player}></Route>
             </Layout>
         </Switch>
     </Router>
