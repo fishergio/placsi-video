@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginRequest } from '../actions'
@@ -28,6 +29,7 @@ const Login = (props) => {
 
   return (
     <>
+      <Header isLogin/>
       <section className='login'>
         <section className='login__container'>
           <h2>Inicia sesión</h2>

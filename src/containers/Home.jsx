@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
@@ -11,42 +12,45 @@ import '../assets/styles/App.scss';
 const Home = ({ myList, trends, originals }) => {
 
     return (
-        <div className="App">
-            <Search/>
-            { myList?.length > 0 && (
-                <Categories title="Mi lista">
-                    <Carousel>
-                        { myList?.map(item =>
-                            <CarouselItem 
-                                key={item.id} 
-                                {...item}
-                                isList
-                            />
-                        )}
-                    </Carousel>
-                </Categories>
-            )}
+        <>
+            <Header />
+            <div className="App">
+                <Search/>
+                { myList?.length > 0 && (
+                    <Categories title="Mi lista">
+                        <Carousel>
+                            { myList?.map(item =>
+                                <CarouselItem 
+                                    key={item.id} 
+                                    {...item}
+                                    isList
+                                />
+                            )}
+                        </Carousel>
+                    </Categories>
+                )}
 
-            { trends?.length > 0 && (
-                <Categories title="Tendencias">
-                    <Carousel>
-                        { trends?.map(item =>
-                            <CarouselItem key={item.id} {...item} />
-                        )}
-                    </Carousel>
-                </Categories>
-            )}
+                { trends?.length > 0 && (
+                    <Categories title="Tendencias">
+                        <Carousel>
+                            { trends?.map(item =>
+                                <CarouselItem key={item.id} {...item} />
+                            )}
+                        </Carousel>
+                    </Categories>
+                )}
 
-            { originals?.length > 0 && (
-                <Categories title="Tendencias">
-                    <Carousel>
-                        { originals?.map(item =>
-                            <CarouselItem key={item.id} {...item} />
-                        )}
-                    </Carousel>
-                </Categories>
-            )}
-        </div>
+                { originals?.length > 0 && (
+                    <Categories title="Tendencias">
+                        <Carousel>
+                            { originals?.map(item =>
+                                <CarouselItem key={item.id} {...item} />
+                            )}
+                        </Carousel>
+                    </Categories>
+                )}
+            </div>
+        </>
     )
 }
 
