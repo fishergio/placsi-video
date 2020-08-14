@@ -12,7 +12,7 @@ const Header = (props) => {
 
   let { user, isLogin, isRegister } = props;
   const hasUser = Object.keys(user).length > 0;
-
+console.log(user)
   const handleLogout = () => {
     props.logoutRequest();
   }

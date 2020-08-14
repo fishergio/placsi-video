@@ -22,8 +22,12 @@ const reducer = (state, action) => {
                 ...state,
                 myList: state.myList.filter( item => item.id !== action.payload)
             }
-        case LOGIN_REQUEST,
-            REGISTER_REQUEST:
+        case LOGIN_REQUEST:
+            return {
+                ...state,
+                user: action.payload
+            }
+        case REGISTER_REQUEST:
             return {
                 ...state,
                 user: action.payload
